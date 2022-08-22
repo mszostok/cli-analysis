@@ -1,0 +1,21 @@
+url: https://github.com/hashicorp/vault/blob/v1.11.2/command/version.go
+version: v1.11.2
+
+framework: github.com/mitchellh/cli
+
+analysis:
+  flags:
+    - -v
+    - --version
+  command: true
+  output:
+    plain:
+      cmd: vault version
+      out: |
+        Vault v1.11.2 (3a8aa12eba357ed2de3192b15c99c717afdeb2b5), built 2022-07-29T09:48:47Z
+
+  collected:
+    client:
+      - version
+      - commit:gitCommit
+      - buildDate

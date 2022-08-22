@@ -1,0 +1,34 @@
+url:
+version:
+
+framework:
+
+analysis:
+  command: true
+  output:
+    plain:
+      cmd: argo version
+      out: |
+        argo: v3.3.9+5db53aa.dirty
+          BuildDate: 2022-08-10T02:08:30Z
+          GitCommit: 5db53aa0ca54e51ca69053e1d3272e37064559d7
+          GitTreeState: dirty
+          GitTag: v3.3.9
+          GoVersion: go1.19
+          Compiler: gc
+          Platform: darwin/amd64
+    short:
+      cmd: argo version --short
+      out: |
+        argo: v3.3.9+5db53aa.dirty
+
+  collected:
+    client:
+      - version
+      - commit:GitCommit
+      - buildDate:BuildDate
+      - dirty:gitTreeState
+      - gitTag
+      - go:goVersion
+      - compiler:Compiler
+      - platform:Platform

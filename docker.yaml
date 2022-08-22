@@ -1,0 +1,73 @@
+url: https://github.com/docker/cli/blob/v20.10.17/cli/command/system/version.go
+version: 20.10.9
+
+framework: github.com/spf13/cobra
+
+analysis:
+  versionSkew: true
+  command: true
+  flag:
+    - -v
+    - --version
+  output:
+    yaml:
+      cmd: docker version
+      out: |
+        Client:
+          Version:           20.10.9
+          API version:       1.41
+          Go version:        go1.16.8
+          Git commit:        c2ea9bc
+          Built:             Thu Nov 18 21:15:43 2021
+          OS/Arch:           darwin/amd64
+          Context:           default
+          Experimental:      true
+
+        Server: Docker Desktop 4.8.2 (79419)
+          Engine:
+            Version:          20.10.14
+            API version:      1.41 (minimum version 1.12)
+            Go version:       go1.16.15
+            Git commit:       87a90dc
+            Built:            Thu Mar 24 01:46:14 2022
+            OS/Arch:          linux/amd64
+            Experimental:     false
+          containerd:
+            Version:          1.5.11
+            GitCommit:        3df54a852345ae127d1fa3092b95168e4a88e2f8
+          runc:
+            Version:          1.0.3
+            GitCommit:        v1.0.3-0-gf46b6ba
+          docker-init:
+            Version:          0.19.0
+            GitCommit:        de40ad0
+    short:
+      cmd: docker --version/-v
+      out: |
+        Docker version 20.10.9, build c2ea9bc
+
+    goTemplate:
+      cmd: docker version --format/-f
+  collected:
+    dependencies:
+      - containerd
+      - runc
+      - docker-init
+    server:
+      - version:Version
+      - go:Go version
+      - API version
+      - commit:Git Commit
+      - platform:OS/Arch
+      - buildDate:Built
+      - Context
+      - Experimental
+    client:
+      - version:Version
+        - go:Go version
+        - API version
+        - commit:Git Commit
+        - platform:OS/Arch
+        - buildDate:Built
+        - Context
+        - Experimental

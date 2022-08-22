@@ -1,0 +1,29 @@
+url:
+version:
+
+framework: github.com/spf13/cobra
+
+analysis:
+  flags:
+    - --version
+  command: true
+  output:
+    plain:
+      cmd: golangci-lint version
+      out: |
+        golangci-lint has version 1.48.0 built from 2d8fea8 on 2022-08-04T09:19:19Z
+
+    short:
+      cmd: golangci-lint version --format short
+      out: |
+        1.48.0
+    json:
+      cmd: golangci-lint version --format json
+      out: |
+        {"version":"1.48.0","commit":"2d8fea8","date":"2022-08-04T09:19:19Z"}
+
+  collected:
+    client:
+      - version
+      - commit
+      - buildDate:date

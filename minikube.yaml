@@ -1,0 +1,47 @@
+url: https://github.com/kubernetes/minikube/blob/v1.26.1/cmd/minikube/cmd/version.go
+version: v1.26.1
+
+framework: github.com/spf13/cobra
+
+analysis:
+  command: true
+  output:
+    short:
+      cmd: minikube version --short
+
+    json:
+      cmd: minikube version --ojson
+      out: |
+        {"commit":"62e108c3dfdec8029a890ad6d8ef96b6461426dc","minikubeVersion":"v1.26.1"}
+
+    yaml:
+      cmd: minikube version --oyaml
+      out: |
+        commit: 62e108c3dfdec8029a890ad6d8ef96b6461426dc
+        minikubeVersion: v1.26.1
+
+    plain:
+      cmd: minikube version
+      out: |
+        minikube version: v1.26.1
+        commit: 62e108c3dfdec8029a890ad6d8ef96b6461426dc
+
+    system:
+      cmd: minikube version --components -oyaml
+      out: |
+        buildctl: buildctl github.com/moby/buildkit v0.10.3 c8d25d9a103b70dc300a4fd55e7e576472284e31
+        commit: 62e108c3dfdec8029a890ad6d8ef96b6461426dc
+        containerd: containerd containerd.io 1.6.6 10c12954828e7c7c9b6e0ea9b0c02b01407d3ae1
+        cri-dockerd: ""
+        crictl: crictl version v1.21.0
+        crio: crio version 1.24.1
+        crun: crun version UNKNOWN
+        ctr: ctr containerd.io 1.6.6
+        docker: Docker version 20.10.17, build 100c701
+        dockerd: Docker version 20.10.17, build a89b842
+        minikubeVersion: v1.26.1
+        podman: podman version 3.4.2
+        runc: runc version 1.1.2
+
+  collected:
+    client:

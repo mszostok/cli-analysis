@@ -1,0 +1,20 @@
+url: https://github.com/k3d-io/k3d/blob/v5.4.4/version/version.go
+version: v5.4.4
+
+framework: github.com/spf13/cobra
+
+analysis:
+  flags:
+    - --version
+  command: true
+  output:
+    plain:
+      cmd:  k3d version
+      out: |
+        k3d version v5.4.4
+        k3s version v1.23.8-k3s1 (default)
+
+  collected:
+    client:
+      - version
+      - k3s image version

@@ -1,0 +1,30 @@
+url: https://github.com/cli/cli/blob/v2.14.4/pkg/cmd/version/version.go
+#    https://github.com/cli/cli/blob/d21d388b8dc10c8f04187c3afa6e0b44f0977c65/cmd/gh/main.go#L262-L279
+version: v1.24.0
+
+framework: github.com/spf13/cobra
+
+analysis:
+  flags:
+    - --version
+  command: true
+  upgradeNotice:
+    cmd: gh
+    note: enabled by default, have cache,  uses `GET */releases/latest`, checks for new releases once every 24 hours and displays an upgrade notice on stderr error if a newer version was found
+    msg: |
+      A new release of gh is available: 2.5.1 → v2.5.2
+      To upgrade, run: brew update && brew upgrade gh
+      https://github.com/cli/cli/releases/tag/v2.5.2
+
+  output:
+    plain:
+      cmd: gh version
+      out: |
+        gh version 2.14.4 (2022-08-10)
+        https://github.com/cli/cli/releases/tag/v2.14.4
+
+  collected:
+    client:
+      - version
+      - buildDate
+      - changelogURL

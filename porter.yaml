@@ -1,0 +1,33 @@
+url: https://github.com/getporter/porter/blob/v1.0.0-beta.3/pkg/porter/version.go
+version: v1.0.0-beta.3
+
+framework: github.com/spf13/cobra
+
+analysis:
+  command: true
+  flags:
+    - -v
+    - --version
+  output:
+    json:
+      cmd: porter version -ojson
+      out: |
+        {
+          "name": "porter",
+          "version": "v1.0.0-beta.3",
+          "commit": "f7aa99dc"
+        }
+    plain:
+      cmd: porter version
+      out: |
+        porter v1.0.0-beta.3 (f7aa99dc)
+    system:
+      cmd: porter version --system
+      note: Print system debug information
+
+  collected:
+    dependencies:
+      - system
+    client:
+      - commit
+      - version

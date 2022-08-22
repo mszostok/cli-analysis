@@ -1,0 +1,28 @@
+url: https://github.com/helm/helm/blob/v3.9.3/cmd/helm/version.go
+version: v3.9.3
+
+framework: github.com/spf13/cobra
+
+analysis:
+  command: true
+  flags:
+    - -v
+    - --version
+  output:
+    short:
+      cmd: helm version --short
+      out:
+    plain:
+      cmd: helm version
+      out: |
+        version.BuildInfo{Version:"v3.9.3", GitCommit:"414ff28d4029ae8c8b05d62aa06c7fe3dee2bc58", GitTreeState:"clean", GoVersion:"go1.19"}
+
+    goTemplate:
+      cmd: helm version --template
+
+  collected:
+    client:
+      - version:Version
+      - commit:GitCommit
+      - dirty:GitTreeState
+      - go:GoVersion

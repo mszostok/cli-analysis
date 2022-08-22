@@ -1,0 +1,27 @@
+url: https://github.com/openfaas/faas-cli/blob/0.14.5/commands/version.go
+version: v1.24.0
+
+framework: github.com/spf13/cobra
+
+analysis:
+  command: true
+  upgradeNotice:
+    cmd: fass-cli version --warn-update
+    note: enabled by default, doesn't have cache, uses `HEAD */releases/latest`
+    msg: "Your faas-cli version (%s) may be out of date. Version: %s is now available on GitHub.\n"
+  output:
+    short:
+      cmd: fass-cli version --short-version
+      out: |
+        0.14.5
+
+  collected:
+    dependencies:
+      - Stack Services
+    server:
+      - version
+      - commit:sha
+      - url:uri
+    client:
+      - version
+      - commit:sha

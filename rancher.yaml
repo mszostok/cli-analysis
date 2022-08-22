@@ -1,0 +1,18 @@
+url: https://github.com/rancher/cli/blob/v2.6/main.go#L75
+version: v2.6.7
+
+framework: github.com/urfave/cli
+
+analysis:
+  flags:
+    - --version
+    - -v
+  output:
+    plain:
+      cmd: rancher --version
+      out: |
+        rancher version v2.6.7
+
+  collected:
+    client:
+      - version

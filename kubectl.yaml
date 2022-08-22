@@ -1,0 +1,92 @@
+url: https://github.com/kubernetes/kubectl/blob/v0.24.4/pkg/cmd/version/version.go
+version: v1.24.0
+
+framework: github.com/spf13/cobra
+
+analysis:
+  versionSkew: true
+  command: true
+  upgradeNotice: false
+  output:
+    json:
+      cmd: kubectl version -ojson
+      out: |
+        {
+          "clientVersion": {
+            "major": "1",
+            "minor": "24",
+            "gitVersion": "v1.24.0",
+            "gitCommit": "4ce5a8954017644c5420bae81d72b09b735c21f0",
+            "gitTreeState": "clean",
+            "buildDate": "2022-05-03T13:46:05Z",
+            "goVersion": "go1.18.1",
+            "compiler": "gc",
+            "platform": "darwin/amd64"
+          },
+          "kustomizeVersion": "v4.5.4",
+          "serverVersion": {
+            "major": "1",
+            "minor": "23",
+            "gitVersion": "v1.23.6+k3s1",
+            "gitCommit": "418c3fa858b69b12b9cefbcff0526f666a6236b9",
+            "gitTreeState": "clean",
+            "buildDate": "2022-04-28T22:16:18Z",
+            "goVersion": "go1.17.5",
+            "compiler": "gc",
+            "platform": "linux/amd64"
+          }
+        }
+    yaml:
+      cmd: kubectl version -oyaml
+      out: |
+        clientVersion:
+          buildDate: "2022-05-03T13:46:05Z"
+          compiler: gc
+          gitCommit: 4ce5a8954017644c5420bae81d72b09b735c21f0
+          gitTreeState: clean
+          gitVersion: v1.24.0
+          goVersion: go1.18.1
+          major: "1"
+          minor: "24"
+          platform: darwin/amd64
+        kustomizeVersion: v4.5.4
+        serverVersion:
+          buildDate: "2022-04-28T22:16:18Z"
+          compiler: gc
+          gitCommit: 418c3fa858b69b12b9cefbcff0526f666a6236b9
+          gitTreeState: clean
+          gitVersion: v1.23.6+k3s1
+          goVersion: go1.17.5
+          major: "1"
+          minor: "23"
+          platform: linux/amd64
+    short:
+      cmd: kubectl version
+      note: (deprecated, will be default in the future)
+      out: |
+        Client Version: v1.24.0
+        Kustomize Version: v4.5.4
+
+  collected:
+    dependencies:
+      - Kustomize
+    server:
+      - go:goVersion
+      - compiler
+      - commit:gitCommit
+      - dirty:gitTreeState
+      - gitVersion
+      - major
+      - minor
+      - platform
+      - buildDate
+    client:
+      - go:goVersion
+      - compiler
+      - commit:gitCommit
+      - dirty:gitTreeState
+      - gitVersion
+      - major
+      - minor
+      - platform
+      - buildDate

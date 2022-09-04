@@ -6,11 +6,11 @@ framework: github.com/spf13/cobra
 analysis:
   versionSkew: true
   command: true
-  flag:
+  flags:
     - -v
     - --version
   output:
-    yaml:
+    plain:
       cmd: docker version
       out: |
         Client:

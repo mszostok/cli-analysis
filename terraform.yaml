@@ -1,0 +1,33 @@
+url: https://github.com/hashicorp/terraform/blob/v1.2.8/internal/command/version.go
+version: v1.2.8
+
+framework: github.com/mitchellh/cli
+
+analysis:
+  flags:
+    - -v
+    - --version
+  command: true
+  output:
+    plain:
+      cmd: terraform version
+      out: |
+        Terraform v1.2.8
+        on darwin_amd64
+    json:
+      cmd: terraform version --json
+      out: |
+        {
+          "terraform_version": "1.2.8",
+          "platform": "darwin_amd64",
+          "provider_selections": {},
+          "terraform_outdated": false
+        }
+
+  collected:
+    client:
+      - version
+      - platform:Platform
+  upgradeNotice:
+    cmd: terraform version --json
+    note: You will see that under `terraform_outdated` property. They call own service https://github.com/hashicorp/go-checkpoint.

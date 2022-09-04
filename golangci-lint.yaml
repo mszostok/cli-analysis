@@ -1,5 +1,5 @@
-url:
-version:
+url: https://github.com/golangci/golangci-lint/blob/v1.48.0/pkg/commands/version.go
+version: v1.48.0
 
 framework: github.com/spf13/cobra
 

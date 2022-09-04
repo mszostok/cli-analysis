@@ -1,7 +1,7 @@
-url:
-version:
+url: https://github.com/argoproj/argo-workflows/blob/v3.3.9/version.go
+version: v3.3.9
 
-framework:
+framework: github.com/spf13/cobra
 
 analysis:
   command: true

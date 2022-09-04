@@ -55,22 +55,33 @@ Analyzed {{ len .CLIs }} CLIs:
 
 ## What data is collected
 
-### Server
+{{ define "alternative" -}}
+{{- if . -}}
+  `{{- (trimSuffix "," .) -}}`
+{{- end -}}
+{{- end -}}
 
-{{- range $key, $alternatives := .CollectedData.Server }}
-- `{{ $key }}` - alternative naming: `{{ $alternatives }}`
+### Server
+| Name | Occurrences | Alternative name |
+|------|-------------|------------------|
+{{- range $key, $details := .CollectedData.Server }}
+|`{{ $key }}` | {{ $details.Cnt }} | {{ template "alternative" $details.Alternatives  | uniq | join "`,`" }}|
 {{- end }}
 
 ### Client
 
-{{- range $key, $alternatives := .CollectedData.Client }}
-- `{{ $key }}` - alternative naming: `{{ $alternatives }}`
+| Name | Occurrences | Alternative name |
+|------|-------------|------------------|
+{{- range $key, $details := .CollectedData.Client }}
+|`{{ $key }}` | {{ $details.Cnt }} | {{ template "alternative" $details.Alternatives  | uniq | join "," }}|
 {{- end }}
 
 ### Dependencies
 
-{{- range $key, $alternatives := .CollectedData.Dependencies }}
-- `{{ $key }}` - alternative naming: `{{ $alternatives }}`
+| Name | Occurrences | Alternative name |
+|------|-------------|------------------|
+{{- range $key, $details := .CollectedData.Dependencies }}
+|`{{ $key }}` | {{ $details.Cnt }} | {{ template "alternative" $details.Alternatives  | uniq | join "," }}|
 {{- end }}
 
 ## Output

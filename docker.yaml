@@ -64,10 +64,10 @@ analysis:
       - Experimental
     client:
       - version:Version
-        - go:Go version
-        - API version
-        - commit:Git Commit
-        - platform:OS/Arch
-        - buildDate:Built
-        - Context
-        - Experimental
+      - go:Go version
+      - API version
+      - commit:Git Commit
+      - platform:OS/Arch
+      - buildDate:Built
+      - Context
+      - Experimental

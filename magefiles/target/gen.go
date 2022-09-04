@@ -49,11 +49,14 @@ type Analysis struct {
 
 	CollectedData CollectedData
 }
-
+type CollectedDataDetails struct {
+	Cnt          int
+	Alternatives []string
+}
 type CollectedData struct {
-	Dependencies map[string][]string
-	Server       map[string][]string
-	Client       map[string][]string
+	Dependencies map[string]CollectedDataDetails
+	Server       map[string]CollectedDataDetails
+	Client       map[string]CollectedDataDetails
 }
 
 func Template(tplFile, outFile string) {
@@ -101,23 +104,30 @@ func CollectAnalysis() Analysis {
 
 func AggregateCollectedByType(clis []CLI) CollectedData {
 	out := CollectedData{
-		Dependencies: map[string][]string{},
-		Server:       map[string][]string{},
-		Client:       map[string][]string{},
+		Dependencies: map[string]CollectedDataDetails{},
+		Server:       map[string]CollectedDataDetails{},
+		Client:       map[string]CollectedDataDetails{},
+	}
+	collect := func(in CollectedDataDetails, alt string) CollectedDataDetails {
+		in.Cnt++
+		if alt != "" {
+			in.Alternatives = append(in.Alternatives, alt)
+		}
+		return in
 	}
 	for _, cli := range clis {
 		for _, name := range cli.Analysis.Collected.Client {
 			key, alternativeName, _ := strings.Cut(name, ":")
-			out.Client[key] = append(out.Client[key], alternativeName)
+			out.Client[key] = collect(out.Client[key], alternativeName)
 		}
 		for _, name := range cli.Analysis.Collected.Server {
 			key, alternativeName, _ := strings.Cut(name, ":")
-			out.Server[key] = append(out.Server[key], alternativeName)
+			out.Server[key] = collect(out.Server[key], alternativeName)
 		}
 
 		for _, name := range cli.Analysis.Collected.Dependencies {
 			key, alternativeName, _ := strings.Cut(name, ":")
-			out.Dependencies[key] = append(out.Dependencies[key], alternativeName)
+			out.Dependencies[key] = collect(out.Dependencies[key], alternativeName)
 		}
 	}
 	return out

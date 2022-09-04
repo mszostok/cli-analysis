@@ -1,8 +1,11 @@
-# CLI version in the wild
+# CLIs in the wild
+
+> **Note**
+> This README is automatically generated from README.tpl.md based on analyzing the data from the YAML files on the root of this directory.
 
 This document describe what approach was implemented by some popular CLI to display its version.
 
-Tested CLIs:
+Tested 14 CLIs:
 - [argo](https://github.com/argoproj/argo-workflows/blob/v3.3.9/version.go)
 - [docker](https://github.com/docker/cli/blob/v20.10.17/cli/command/system/version.go)
 - [eksctl](https://github.com/weaveworks/eksctl/blob/v0.108.0/cmd/eksctl/version.go)
@@ -67,29 +70,42 @@ Tested CLIs:
 
 ## Output
 
-### goTemplate
+### GoTemplate
 
-- `docker version --format/-f`
+- `docker version --format/-f` 
   ```
   ```
 
-- `helm version --template`
+- `helm version --template` 
   ```
   ```
 
-### json
+### Json
 
-- `eksctl version -ojson`
+- `eksctl version -ojson` 
   ```json
-  {"Version":"0.108.0","PreReleaseID":"","Metadata":{"BuildDate":"2022-08-12T08:12:00Z","GitCommit":"728d4ad"},"EKSServerSupportedVersions":["1.19","1.20","1.21","1.22"]}
+  {
+    "Version": "0.108.0",
+    "PreReleaseID": "",
+    "Metadata": {
+      "BuildDate": "2022-08-12T08:12:00Z",
+      "GitCommit": "728d4ad"
+    },
+    "EKSServerSupportedVersions": [
+      "1.19",
+      "1.20",
+      "1.21",
+      "1.22"
+    ]
+  }
   ```
 
-- `golangci-lint version --format json`
+- `golangci-lint version --format json` 
   ```json
   {"version":"1.48.0","commit":"2d8fea8","date":"2022-08-04T09:19:19Z"}
   ```
 
-- `kubectl version -ojson`
+- `kubectl version -ojson` 
   ```json
   {
     "clientVersion": {
@@ -118,12 +134,12 @@ Tested CLIs:
   }
   ```
 
-- `minikube version --ojson`
+- `minikube version --ojson` 
   ```json
   {"commit":"62e108c3dfdec8029a890ad6d8ef96b6461426dc","minikubeVersion":"v1.26.1"}
   ```
 
-- `porter version -ojson`
+- `porter version -ojson` 
   ```json
   {
     "name": "porter",
@@ -132,7 +148,7 @@ Tested CLIs:
   }
   ```
 
-- `terraform version --json`
+- `terraform version --json` 
   ```json
   {
     "terraform_version": "1.2.8",
@@ -142,9 +158,9 @@ Tested CLIs:
   }
   ```
 
-### plain
+### Plain
 
-- `argo version`
+- `argo version` 
   ```text
   argo: v3.3.9+5db53aa.dirty
     BuildDate: 2022-08-10T02:08:30Z
@@ -156,7 +172,7 @@ Tested CLIs:
     Platform: darwin/amd64
   ```
 
-- `docker version`
+- `docker version` 
   ```text
   Client:
     Version:           20.10.9
@@ -188,99 +204,99 @@ Tested CLIs:
       GitCommit:        de40ad0
   ```
 
-- `gh version`
+- `gh version` 
   ```text
   gh version 2.14.4 (2022-08-10)
   https://github.com/cli/cli/releases/tag/v2.14.4
   ```
 
-- `golangci-lint version`
+- `golangci-lint version` 
   ```text
   golangci-lint has version 1.48.0 built from 2d8fea8 on 2022-08-04T09:19:19Z
   ```
 
-- `helm version`
+- `helm version` 
   ```text
   version.BuildInfo{Version:"v3.9.3", GitCommit:"414ff28d4029ae8c8b05d62aa06c7fe3dee2bc58", GitTreeState:"clean", GoVersion:"go1.19"}
   ```
 
-- `k3d version`
+- `k3d version` 
   ```text
   k3d version v5.4.4
   k3s version v1.23.8-k3s1 (default)
   ```
 
-- `minikube version`
+- `minikube version` 
   ```text
   minikube version: v1.26.1
   commit: 62e108c3dfdec8029a890ad6d8ef96b6461426dc
   ```
 
-- `porter version`
+- `porter version` 
   ```text
   porter v1.0.0-beta.3 (f7aa99dc)
   ```
 
-- `rancher --version`
+- `rancher --version` 
   ```text
   rancher version v2.6.7
   ```
 
-- `terraform version`
+- `terraform version` 
   ```text
   Terraform v1.2.8
   on darwin_amd64
   ```
 
-- `vault version`
+- `vault version` 
   ```text
   Vault v1.11.2 (3a8aa12eba357ed2de3192b15c99c717afdeb2b5), built 2022-07-29T09:48:47Z
   ```
 
-### short
+### Short
 
-- `argo version --short`
+- `argo version --short` 
   ```text
   argo: v3.3.9+5db53aa.dirty
   ```
 
-- `docker --version/-v`
+- `docker --version/-v` 
   ```text
   Docker version 20.10.9, build c2ea9bc
   ```
 
-- `eksctl version`
+- `eksctl version` 
   ```text
   0.108.0
   ```
 
-- `fass-cli version --short-version`
+- `fass-cli version --short-version` 
   ```text
   0.14.5
   ```
 
-- `golangci-lint version --format short`
+- `golangci-lint version --format short` 
   ```text
   1.48.0
   ```
 
-- `helm version --short`
+- `helm version --short` 
   ```text
   ```
 
-- `kubectl version`
+- `kubectl version --short` (deprecated, will be default in the future)
   ```text
   Client Version: v1.24.0
   Kustomize Version: v4.5.4
   ```
 
-- `minikube version --short`
+- `minikube version --short` 
   ```text
   ```
 
-### system
+### System
 
-- `minikube version --components -oyaml`
+- `minikube version --components -oyaml` 
   ```
   buildctl: buildctl github.com/moby/buildkit v0.10.3 c8d25d9a103b70dc300a4fd55e7e576472284e31
   commit: 62e108c3dfdec8029a890ad6d8ef96b6461426dc
@@ -297,13 +313,13 @@ Tested CLIs:
   runc: runc version 1.1.2
   ```
 
-- `porter version --system`
+- `porter version --system` Print system debug information
   ```
   ```
 
-### yaml
+### Yaml
 
-- `kubectl version -oyaml`
+- `kubectl version -oyaml` 
   ```yaml
   clientVersion:
     buildDate: "2022-05-03T13:46:05Z"
@@ -328,28 +344,10 @@ Tested CLIs:
     platform: linux/amd64
   ```
 
-- `minikube version --oyaml`
+- `minikube version --oyaml` 
   ```yaml
   commit: 62e108c3dfdec8029a890ad6d8ef96b6461426dc
   minikubeVersion: v1.26.1
-  ```
-
-----
-
-### JSON
-
-### YAML
-
-### Go template
-
-### Short
-
-1 of 13
-
-- `kubectl version --short` (deprecated, will be default in the future)
-  ```
-  Client Version: v1.24.0
-  Kustomize Version: v4.5.4
   ```
 
 ## Frameworks built-in support

@@ -13,7 +13,20 @@ analysis:
     json:
       cmd: eksctl version -ojson
       out: |
-        {"Version":"0.108.0","PreReleaseID":"","Metadata":{"BuildDate":"2022-08-12T08:12:00Z","GitCommit":"728d4ad"},"EKSServerSupportedVersions":["1.19","1.20","1.21","1.22"]}
+        {
+          "Version": "0.108.0",
+          "PreReleaseID": "",
+          "Metadata": {
+            "BuildDate": "2022-08-12T08:12:00Z",
+            "GitCommit": "728d4ad"
+          },
+          "EKSServerSupportedVersions": [
+            "1.19",
+            "1.20",
+            "1.21",
+            "1.22"
+          ]
+        }
 
   collected:
     client:

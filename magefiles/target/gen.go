@@ -32,8 +32,9 @@ type CLI struct {
 }
 
 type Output struct {
-	Cmd string `json:"cmd"`
-	Out string `json:"out"`
+	Cmd  string `json:"cmd"`
+	Out  string `json:"out"`
+	Note string `json:"note"`
 }
 
 type Analysis struct {

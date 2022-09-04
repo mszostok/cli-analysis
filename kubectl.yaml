@@ -6,7 +6,6 @@ framework: github.com/spf13/cobra
 analysis:
   versionSkew: true
   command: true
-  upgradeNotice: false
   output:
     json:
       cmd: kubectl version -ojson
@@ -61,7 +60,7 @@ analysis:
           minor: "23"
           platform: linux/amd64
     short:
-      cmd: kubectl version
+      cmd: kubectl version --short
       note: (deprecated, will be default in the future)
       out: |
         Client Version: v1.24.0

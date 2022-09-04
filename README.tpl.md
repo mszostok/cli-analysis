@@ -1,8 +1,11 @@
-# CLI version in the wild
+# CLIs in the wild
+
+> **Note**
+> This README is automatically generated from README.tpl.md based on analyzing the data from the YAML files on the root of this directory.
 
 This document describe what approach was implemented by some popular CLI to display its version.
 
-Tested CLIs:
+Tested {{ len .CLIs }} CLIs:
 {{- range .CLIs }}
 - [{{ .Name }}]({{ .URL }})
 {{- end }}
@@ -55,33 +58,15 @@ Tested CLIs:
 
 {{- range $key, $val := .Output }}
 
-### {{ $key }}
+### {{ $key | title }}
 
 {{- range $item := $val }}
 {{ $myDict := dict "json" "json" "yaml" "yaml" "plain" "text" "short" "text" }}
-- `{{ $item.Cmd }}`
+- `{{ $item.Cmd }}` {{ ( $item.Note ) }}
   ```{{ get $myDict $key }}
 {{ $item.Out | indent 2}}```
 {{- end }}
 {{- end }}
-
-----
-
-### JSON
-
-### YAML
-
-### Go template
-
-### Short
-
-1 of 13
-
-- `kubectl version --short` (deprecated, will be default in the future)
-  ```
-  Client Version: v1.24.0
-  Kustomize Version: v4.5.4
-  ```
 
 ## Frameworks built-in support
 

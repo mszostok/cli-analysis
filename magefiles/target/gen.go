@@ -46,6 +46,14 @@ type Analysis struct {
 	ViaFlagsAndCmd []CLI
 
 	Output map[string][]Output // output per type
+
+	CollectedData CollectedData
+}
+
+type CollectedData struct {
+	Dependencies map[string][]string
+	Server       map[string][]string
+	Client       map[string][]string
 }
 
 func Template(tplFile, outFile string) {
@@ -86,8 +94,33 @@ func CollectAnalysis() Analysis {
 		ViaFlagsOnly:   ViaFlags(clis),
 		FlagsNames:     FlagsNames(clis),
 		Output:         AggregateOutputByType(clis),
+		CollectedData:  AggregateCollectedByType(clis),
 	}
 
+}
+
+func AggregateCollectedByType(clis []CLI) CollectedData {
+	out := CollectedData{
+		Dependencies: map[string][]string{},
+		Server:       map[string][]string{},
+		Client:       map[string][]string{},
+	}
+	for _, cli := range clis {
+		for _, name := range cli.Analysis.Collected.Client {
+			key, alternativeName, _ := strings.Cut(name, ":")
+			out.Client[key] = append(out.Client[key], alternativeName)
+		}
+		for _, name := range cli.Analysis.Collected.Server {
+			key, alternativeName, _ := strings.Cut(name, ":")
+			out.Server[key] = append(out.Server[key], alternativeName)
+		}
+
+		for _, name := range cli.Analysis.Collected.Dependencies {
+			key, alternativeName, _ := strings.Cut(name, ":")
+			out.Dependencies[key] = append(out.Dependencies[key], alternativeName)
+		}
+	}
+	return out
 }
 
 func AggregateOutputByType(clis []CLI) map[string][]Output {

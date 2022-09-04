@@ -1,11 +1,12 @@
 # CLIs in the wild
 
 > **Note**
+>
 > This README is automatically generated from README.tpl.md based on analyzing the data from the YAML files on the root of this directory.
 
 This document describe what approach was implemented by some popular CLI to display its version.
 
-Tested 14 CLIs:
+Analyzed 14 CLIs:
 - [argo](https://github.com/argoproj/argo-workflows/blob/v3.3.9/version.go)
 - [docker](https://github.com/docker/cli/blob/v20.10.17/cli/command/system/version.go)
 - [eksctl](https://github.com/weaveworks/eksctl/blob/v0.108.0/cmd/eksctl/version.go)
@@ -46,16 +47,16 @@ Tested 14 CLIs:
 
 8 of 14
 
-| CLI Name | Flags |
-|----------|-------|
-| [docker](https://github.com/docker/cli/blob/v20.10.17/cli/command/system/version.go) | `--version`, `-v` |
-| [gh](https://github.com/cli/cli/blob/v2.14.4/pkg/cmd/version/version.go) | `--version` |
-| [golangci-lint](https://github.com/golangci/golangci-lint/blob/v1.48.0/pkg/commands/version.go) | `--version` |
-| [helm](https://github.com/helm/helm/blob/v3.9.3/cmd/helm/version.go) | `--version`, `-v` |
-| [k3d](https://github.com/k3d-io/k3d/blob/v5.4.4/version/version.go) | `--version` |
-| [porter](https://github.com/getporter/porter/blob/v1.0.0-beta.3/pkg/porter/version.go) | `--version`, `-v` |
-| [terraform](https://github.com/hashicorp/terraform/blob/v1.2.8/internal/command/version.go) | `--version`, `-v` |
-| [vault](https://github.com/hashicorp/vault/blob/v1.11.2/command/version.go) | `--version`, `-v` |
+| CLI Name | Flags | Command |
+|----------|-------|---------|
+| [docker](https://github.com/docker/cli/blob/v20.10.17/cli/command/system/version.go) | `--version`, `-v` | `version` |
+| [gh](https://github.com/cli/cli/blob/v2.14.4/pkg/cmd/version/version.go) | `--version` | `version` |
+| [golangci-lint](https://github.com/golangci/golangci-lint/blob/v1.48.0/pkg/commands/version.go) | `--version` | `version` |
+| [helm](https://github.com/helm/helm/blob/v3.9.3/cmd/helm/version.go) | `--version`, `-v` | `version` |
+| [k3d](https://github.com/k3d-io/k3d/blob/v5.4.4/version/version.go) | `--version` | `version` |
+| [porter](https://github.com/getporter/porter/blob/v1.0.0-beta.3/pkg/porter/version.go) | `--version`, `-v` | `version` |
+| [terraform](https://github.com/hashicorp/terraform/blob/v1.2.8/internal/command/version.go) | `--version`, `-v` | `version` |
+| [vault](https://github.com/hashicorp/vault/blob/v1.11.2/command/version.go) | `--version`, `-v` | `version` |
 
 ### Overall flag names popularity
 

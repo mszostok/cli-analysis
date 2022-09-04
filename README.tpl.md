@@ -1,11 +1,12 @@
 # CLIs in the wild
 
 > **Note**
+>
 > This README is automatically generated from README.tpl.md based on analyzing the data from the YAML files on the root of this directory.
 
 This document describe what approach was implemented by some popular CLI to display its version.
 
-Tested {{ len .CLIs }} CLIs:
+Analyzed {{ len .CLIs }} CLIs:
 {{- range .CLIs }}
 - [{{ .Name }}]({{ .URL }})
 {{- end }}
@@ -36,16 +37,16 @@ Tested {{ len .CLIs }} CLIs:
 
 {{ len .ViaFlagsAndCmd }} of {{ len .CLIs }}
 
-| CLI Name | Flags |
-|----------|-------|
+| CLI Name | Flags | Command |
+|----------|-------|---------|
 {{- range .ViaFlagsAndCmd }}
-| [{{ .Name }}]({{ .URL }}) | `{{ .Analysis.Flags | sortAlpha | join "`, `" }}` |
+| [{{ .Name }}]({{ .URL }}) | `{{ .Analysis.Flags | sortAlpha | join "`, `" }}` | `version` |
 {{- end }}
 
 ### Overall flag names popularity
 
 | Name | Number of usage |
-|-----|---------|
+|------|-----------------|
 {{- range $key, $value := .FlagsNames }}
 | `{{ $key }}` | {{ $value }} |
 {{- end }}
@@ -53,6 +54,24 @@ Tested {{ len .CLIs }} CLIs:
 ## Upgrade notice
 
 ## What data is collected
+
+### Server
+
+{{- range $key, $alternatives := .CollectedData.Server }}
+- `{{ $key }}` - alternative naming: `{{ $alternatives }}`
+{{- end }}
+
+### Client
+
+{{- range $key, $alternatives := .CollectedData.Client }}
+- `{{ $key }}` - alternative naming: `{{ $alternatives }}`
+{{- end }}
+
+### Dependencies
+
+{{- range $key, $alternatives := .CollectedData.Dependencies }}
+- `{{ $key }}` - alternative naming: `{{ $alternatives }}`
+{{- end }}
 
 ## Output
 

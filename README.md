@@ -157,7 +157,7 @@ Analyzed 14 CLIs:
 
 - `eksctl version -ojson`
 
-  ```
+  ```json
   {
     "Version": "0.108.0",
     "PreReleaseID": "",
@@ -176,13 +176,13 @@ Analyzed 14 CLIs:
 
 - `golangci-lint version --format json`
 
-  ```
+  ```json
   {"version":"1.48.0","commit":"2d8fea8","date":"2022-08-04T09:19:19Z"}
   ```
 
 - `kubectl version -ojson`
 
-  ```
+  ```json
   {
     "clientVersion": {
       "major": "1",
@@ -212,13 +212,13 @@ Analyzed 14 CLIs:
 
 - `minikube version --ojson`
 
-  ```
+  ```json
   {"commit":"62e108c3dfdec8029a890ad6d8ef96b6461426dc","minikubeVersion":"v1.26.1"}
   ```
 
 - `porter version -ojson`
 
-  ```
+  ```json
   {
     "name": "porter",
     "version": "v1.0.0-beta.3",
@@ -228,7 +228,7 @@ Analyzed 14 CLIs:
 
 - `terraform version --json`
 
-  ```
+  ```json
   {
     "terraform_version": "1.2.8",
     "platform": "darwin_amd64",
@@ -241,7 +241,7 @@ Analyzed 14 CLIs:
 
 - `kubectl version -oyaml`
 
-  ```
+  ```yaml
   clientVersion:
     buildDate: "2022-05-03T13:46:05Z"
     compiler: gc
@@ -267,7 +267,7 @@ Analyzed 14 CLIs:
 
 - `minikube version --oyaml`
 
-  ```
+  ```yaml
   commit: 62e108c3dfdec8029a890ad6d8ef96b6461426dc
   minikubeVersion: v1.26.1
   ```

@@ -106,7 +106,7 @@ Analyzed {{ len .CLIs }} CLIs:
 ### {{ $key | title }}
 
 {{- range $item := $val }}
-{{ $myDict := dict "json" "json" "yaml" "yaml" "plain" "text" "short" "text" }}
+{{ $myDict := dict "JSON" "json" "YAML" "yaml" "plain" "text" "short" "text" }}
 - `{{ $item.Cmd }}` {{ ( $item.Note ) }}
 {{if $item.Out}}
   ```{{ get $myDict $key }}

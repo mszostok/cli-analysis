@@ -14,27 +14,32 @@ import (
 )
 
 type CLI struct {
-	Name      string `json:"name"`
-	URL       string `json:"url"`
-	Version   string `json:"version"`
-	Framework string `json:"framework"`
+	Name      string `yaml:"name"`
+	URL       string `yaml:"url"`
+	Version   string `yaml:"version"`
+	Framework string `yaml:"framework"`
 	Analysis  struct {
-		VersionSkew bool              `json:"versionSkew"`
-		Command     bool              `json:"command"`
-		Flags       []string          `json:"flags"`
-		Output      map[string]Output `json:"output"`
+		UpgradeNotice struct {
+			Cmd  string `yaml:"cmd"`
+			Note string `yaml:"note"`
+			Msg  string `yaml:"msg"`
+		} `yaml:"upgradeNotice"`
+		VersionSkew bool              `yaml:"versionSkew"`
+		Command     bool              `yaml:"command"`
+		Flags       []string          `yaml:"flags"`
+		Output      map[string]Output `yaml:"output"`
 		Collected   struct {
-			Dependencies []string `json:"dependencies"`
-			Server       []string `json:"server"`
-			Client       []string `json:"client"`
-		} `json:"collected"`
-	} `json:"analysis"`
+			Dependencies []string `yaml:"dependencies"`
+			Server       []string `yaml:"server"`
+			Client       []string `yaml:"client"`
+		} `yaml:"collected"`
+	} `yaml:"analysis"`
 }
 
 type Output struct {
-	Cmd  string `json:"cmd"`
-	Out  string `json:"out"`
-	Note string `json:"note"`
+	Cmd  string `yaml:"cmd"`
+	Out  string `yaml:"out"`
+	Note string `yaml:"note"`
 }
 
 type Analysis struct {
@@ -49,10 +54,12 @@ type Analysis struct {
 
 	CollectedData CollectedData
 }
+
 type CollectedDataDetails struct {
 	Cnt          int
 	Alternatives []string
 }
+
 type CollectedData struct {
 	Dependencies map[string]CollectedDataDetails
 	Server       map[string]CollectedDataDetails
@@ -99,7 +106,6 @@ func CollectAnalysis() Analysis {
 		Output:         AggregateOutputByType(clis),
 		CollectedData:  AggregateCollectedByType(clis),
 	}
-
 }
 
 func AggregateCollectedByType(clis []CLI) CollectedData {

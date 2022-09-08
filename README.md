@@ -66,6 +66,29 @@ Analyzed 14 CLIs:
 | `-v` | 6 |
 
 ## Upgrade notice
+- `fass-cli version --warn-update`
+  > **Note**
+	> enabled by default, doesn't have cache, uses `HEAD */releases/latest`
+
+  ```text
+  Your faas-cli version (%s) may be out of date. Version: %s is now available on GitHub.
+  ```
+- `gh`
+  > **Note**
+	> enabled by default, have cache,  uses `GET */releases/latest`, checks for new releases once every 24 hours and displays an upgrade notice on stderr error if a newer version was found
+
+  ```text
+  A new release of gh is available: 2.5.1 → v2.5.2
+  To upgrade, run: brew update && brew upgrade gh
+  https://github.com/cli/cli/releases/tag/v2.5.2
+  ```
+- `terraform version --json`
+  > **Note**
+	> You will see that under `terraform_outdated` property. They call own service https://github.com/hashicorp/go-checkpoint.
+
+  ```text
+  
+  ```
 
 ## What data is collected
 
@@ -126,16 +149,15 @@ Analyzed 14 CLIs:
 ### GoTemplate
 
 - `docker version --format/-f` 
-  ```
-  ```
+
 
 - `helm version --template` 
-  ```
-  ```
+
 
 ### Json
 
 - `eksctl version -ojson` 
+
   ```json
   {
     "Version": "0.108.0",
@@ -154,11 +176,13 @@ Analyzed 14 CLIs:
   ```
 
 - `golangci-lint version --format json` 
+
   ```json
   {"version":"1.48.0","commit":"2d8fea8","date":"2022-08-04T09:19:19Z"}
   ```
 
 - `kubectl version -ojson` 
+
   ```json
   {
     "clientVersion": {
@@ -188,11 +212,13 @@ Analyzed 14 CLIs:
   ```
 
 - `minikube version --ojson` 
+
   ```json
   {"commit":"62e108c3dfdec8029a890ad6d8ef96b6461426dc","minikubeVersion":"v1.26.1"}
   ```
 
 - `porter version -ojson` 
+
   ```json
   {
     "name": "porter",
@@ -202,6 +228,7 @@ Analyzed 14 CLIs:
   ```
 
 - `terraform version --json` 
+
   ```json
   {
     "terraform_version": "1.2.8",
@@ -214,6 +241,7 @@ Analyzed 14 CLIs:
 ### Plain
 
 - `argo version` 
+
   ```text
   argo: v3.3.9+5db53aa.dirty
     BuildDate: 2022-08-10T02:08:30Z
@@ -226,6 +254,7 @@ Analyzed 14 CLIs:
   ```
 
 - `docker version` 
+
   ```text
   Client:
     Version:           20.10.9
@@ -258,50 +287,59 @@ Analyzed 14 CLIs:
   ```
 
 - `gh version` 
+
   ```text
   gh version 2.14.4 (2022-08-10)
   https://github.com/cli/cli/releases/tag/v2.14.4
   ```
 
 - `golangci-lint version` 
+
   ```text
   golangci-lint has version 1.48.0 built from 2d8fea8 on 2022-08-04T09:19:19Z
   ```
 
 - `helm version` 
+
   ```text
   version.BuildInfo{Version:"v3.9.3", GitCommit:"414ff28d4029ae8c8b05d62aa06c7fe3dee2bc58", GitTreeState:"clean", GoVersion:"go1.19"}
   ```
 
 - `k3d version` 
+
   ```text
   k3d version v5.4.4
   k3s version v1.23.8-k3s1 (default)
   ```
 
 - `minikube version` 
+
   ```text
   minikube version: v1.26.1
   commit: 62e108c3dfdec8029a890ad6d8ef96b6461426dc
   ```
 
 - `porter version` 
+
   ```text
   porter v1.0.0-beta.3 (f7aa99dc)
   ```
 
 - `rancher --version` 
+
   ```text
   rancher version v2.6.7
   ```
 
 - `terraform version` 
+
   ```text
   Terraform v1.2.8
   on darwin_amd64
   ```
 
 - `vault version` 
+
   ```text
   Vault v1.11.2 (3a8aa12eba357ed2de3192b15c99c717afdeb2b5), built 2022-07-29T09:48:47Z
   ```
@@ -309,47 +347,52 @@ Analyzed 14 CLIs:
 ### Short
 
 - `argo version --short` 
+
   ```text
   argo: v3.3.9+5db53aa.dirty
   ```
 
 - `docker --version/-v` 
+
   ```text
   Docker version 20.10.9, build c2ea9bc
   ```
 
 - `eksctl version` 
+
   ```text
   0.108.0
   ```
 
 - `fass-cli version --short-version` 
+
   ```text
   0.14.5
   ```
 
 - `golangci-lint version --format short` 
+
   ```text
   1.48.0
   ```
 
 - `helm version --short` 
-  ```text
-  ```
+
 
 - `kubectl version --short` (deprecated, will be default in the future)
+
   ```text
   Client Version: v1.24.0
   Kustomize Version: v4.5.4
   ```
 
 - `minikube version --short` 
-  ```text
-  ```
+
 
 ### System
 
 - `minikube version --components -oyaml` 
+
   ```
   buildctl: buildctl github.com/moby/buildkit v0.10.3 c8d25d9a103b70dc300a4fd55e7e576472284e31
   commit: 62e108c3dfdec8029a890ad6d8ef96b6461426dc
@@ -367,12 +410,12 @@ Analyzed 14 CLIs:
   ```
 
 - `porter version --system` Print system debug information
-  ```
-  ```
+
 
 ### Yaml
 
 - `kubectl version -oyaml` 
+
   ```yaml
   clientVersion:
     buildDate: "2022-05-03T13:46:05Z"
@@ -398,6 +441,7 @@ Analyzed 14 CLIs:
   ```
 
 - `minikube version --oyaml` 
+
   ```yaml
   commit: 62e108c3dfdec8029a890ad6d8ef96b6461426dc
   minikubeVersion: v1.26.1
@@ -420,6 +464,6 @@ cmd := &cobra.Command{
 }
 ```
 
-###
+## Others
 
-Interesting approach to print the version of deps: https://github.com/hashicorp/terraform/blob/v1.3.0-dev/version/dependencies.go
+- Interesting approach to print the version of deps: https://github.com/hashicorp/terraform/blob/v1.3.0-dev/version/dependencies.go

@@ -53,6 +53,20 @@ Analyzed {{ len .CLIs }} CLIs:
 
 ## Upgrade notice
 
+{{- range $item := .CLIs }}
+{{- if $item.Analysis.UpgradeNotice.Cmd }}
+- `{{ $item.Analysis.UpgradeNotice.Cmd }}`
+  > **Note**
+	> {{ $item.Analysis.UpgradeNotice.Note }}
+
+  ```text
+  {{- $item.Analysis.UpgradeNotice.Msg | trim | nindent 2 }}
+  ```
+	{{- if $item.Analysis.UpgradeNotice.Note }}
+  {{- end }}
+{{- end }}
+{{- end }}
+
 ## What data is collected
 
 {{ define "alternative" -}}
@@ -93,8 +107,10 @@ Analyzed {{ len .CLIs }} CLIs:
 {{- range $item := $val }}
 {{ $myDict := dict "json" "json" "yaml" "yaml" "plain" "text" "short" "text" }}
 - `{{ $item.Cmd }}` {{ ( $item.Note ) }}
+{{if $item.Out}}
   ```{{ get $myDict $key }}
 {{ $item.Out | indent 2}}```
+{{- end }}
 {{- end }}
 {{- end }}
 
@@ -115,6 +131,6 @@ cmd := &cobra.Command{
 }
 ```
 
-###
+## Others
 
-Interesting approach to print the version of deps: https://github.com/hashicorp/terraform/blob/v1.3.0-dev/version/dependencies.go
+- Interesting approach to print the version of deps: https://github.com/hashicorp/terraform/blob/v1.3.0-dev/version/dependencies.go

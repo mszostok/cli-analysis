@@ -449,9 +449,19 @@ Analyzed 14 CLIs:
 
 - `porter version --system` Print system debug information
 
-## Frameworks' built-in support
+## Frameworks
 
-### Cobra
+### Popularity
+
+| Name                       | Occurrences |
+|----------------------------|-------------|
+| `github.com/mitchellh/cli` | 2           |
+| `github.com/spf13/cobra`   | 11          |
+| `github.com/urfave/cli`    | 1           |
+
+### Built-in support
+
+#### Cobra
 
 ```go
 cmd := &cobra.Command{

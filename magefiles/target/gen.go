@@ -53,6 +53,8 @@ type Analysis struct {
 	Output map[string][]Output // output per type
 
 	CollectedData CollectedData
+
+	Frameworks map[string]int
 }
 
 type CollectedDataDetails struct {
@@ -105,7 +107,16 @@ func CollectAnalysis() Analysis {
 		FlagsNames:     FlagsNames(clis),
 		Output:         AggregateOutputByType(clis),
 		CollectedData:  AggregateCollectedByType(clis),
+		Frameworks:     AggregateFrameworks(clis),
 	}
+}
+
+func AggregateFrameworks(clis []CLI) map[string]int {
+	out := map[string]int{}
+	for _, cli := range clis {
+		out[cli.Framework] = out[cli.Framework] + 1
+	}
+	return out
 }
 
 func AggregateCollectedByType(clis []CLI) CollectedData {

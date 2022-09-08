@@ -115,9 +115,19 @@ Analyzed {{ len .CLIs }} CLIs:
 {{- end }}
 {{- end }}
 
-## Frameworks' built-in support
+## Frameworks
 
-### Cobra
+### Popularity
+
+| Name | Occurrences |
+|------|-------------|
+{{- range $key, $cnt := .Frameworks }}
+|`{{ $key }}` | {{ $cnt}} |
+{{- end }}
+
+### Built-in support
+
+#### Cobra
 
 ```go
 cmd := &cobra.Command{

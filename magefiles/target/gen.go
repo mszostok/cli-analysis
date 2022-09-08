@@ -143,6 +143,9 @@ func AggregateOutputByType(clis []CLI) map[string][]Output {
 	out := map[string][]Output{}
 	for _, cli := range clis {
 		for name, resp := range cli.Analysis.Output {
+			if strings.EqualFold(name, "json") || strings.EqualFold(name, "yaml") {
+				name = strings.ToUpper(name)
+			}
 			out[name] = append(out[name], resp)
 		}
 	}

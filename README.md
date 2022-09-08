@@ -153,17 +153,11 @@ Analyzed 14 CLIs:
 
 ## Output
 
-### GoTemplate
-
-- `docker version --format/-f`
-
-- `helm version --template`
-
-### Json
+### JSON
 
 - `eksctl version -ojson`
 
-  ```json
+  ```
   {
     "Version": "0.108.0",
     "PreReleaseID": "",
@@ -182,13 +176,13 @@ Analyzed 14 CLIs:
 
 - `golangci-lint version --format json`
 
-  ```json
+  ```
   {"version":"1.48.0","commit":"2d8fea8","date":"2022-08-04T09:19:19Z"}
   ```
 
 - `kubectl version -ojson`
 
-  ```json
+  ```
   {
     "clientVersion": {
       "major": "1",
@@ -218,13 +212,13 @@ Analyzed 14 CLIs:
 
 - `minikube version --ojson`
 
-  ```json
+  ```
   {"commit":"62e108c3dfdec8029a890ad6d8ef96b6461426dc","minikubeVersion":"v1.26.1"}
   ```
 
 - `porter version -ojson`
 
-  ```json
+  ```
   {
     "name": "porter",
     "version": "v1.0.0-beta.3",
@@ -234,7 +228,7 @@ Analyzed 14 CLIs:
 
 - `terraform version --json`
 
-  ```json
+  ```
   {
     "terraform_version": "1.2.8",
     "platform": "darwin_amd64",
@@ -242,6 +236,47 @@ Analyzed 14 CLIs:
     "terraform_outdated": false
   }
   ```
+
+### YAML
+
+- `kubectl version -oyaml`
+
+  ```
+  clientVersion:
+    buildDate: "2022-05-03T13:46:05Z"
+    compiler: gc
+    gitCommit: 4ce5a8954017644c5420bae81d72b09b735c21f0
+    gitTreeState: clean
+    gitVersion: v1.24.0
+    goVersion: go1.18.1
+    major: "1"
+    minor: "24"
+    platform: darwin/amd64
+  kustomizeVersion: v4.5.4
+  serverVersion:
+    buildDate: "2022-04-28T22:16:18Z"
+    compiler: gc
+    gitCommit: 418c3fa858b69b12b9cefbcff0526f666a6236b9
+    gitTreeState: clean
+    gitVersion: v1.23.6+k3s1
+    goVersion: go1.17.5
+    major: "1"
+    minor: "23"
+    platform: linux/amd64
+  ```
+
+- `minikube version --oyaml`
+
+  ```
+  commit: 62e108c3dfdec8029a890ad6d8ef96b6461426dc
+  minikubeVersion: v1.26.1
+  ```
+
+### GoTemplate
+
+- `docker version --format/-f`
+
+- `helm version --template`
 
 ### Plain
 
@@ -413,41 +448,6 @@ Analyzed 14 CLIs:
   ```
 
 - `porter version --system` Print system debug information
-
-### Yaml
-
-- `kubectl version -oyaml`
-
-  ```yaml
-  clientVersion:
-    buildDate: "2022-05-03T13:46:05Z"
-    compiler: gc
-    gitCommit: 4ce5a8954017644c5420bae81d72b09b735c21f0
-    gitTreeState: clean
-    gitVersion: v1.24.0
-    goVersion: go1.18.1
-    major: "1"
-    minor: "24"
-    platform: darwin/amd64
-  kustomizeVersion: v4.5.4
-  serverVersion:
-    buildDate: "2022-04-28T22:16:18Z"
-    compiler: gc
-    gitCommit: 418c3fa858b69b12b9cefbcff0526f666a6236b9
-    gitTreeState: clean
-    gitVersion: v1.23.6+k3s1
-    goVersion: go1.17.5
-    major: "1"
-    minor: "23"
-    platform: linux/amd64
-  ```
-
-- `minikube version --oyaml`
-
-  ```yaml
-  commit: 62e108c3dfdec8029a890ad6d8ef96b6461426dc
-  minikubeVersion: v1.26.1
-  ```
 
 ## Frameworks' built-in support
 

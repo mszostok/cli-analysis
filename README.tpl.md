@@ -80,7 +80,7 @@ Analyzed {{ len .CLIs }} CLIs:
 | Name | Occurrences | Alternative name |
 |------|-------------|------------------|
 {{- range $key, $details := .CollectedData.Server }}
-|`{{ $key }}` | {{ $details.Cnt }} | {{ template "alternative" $details.Alternatives  | uniq | join "`,`" }}|
+|`{{ $key }}` | {{ $details.Cnt }} | {{ template "alternative" $details.Alternatives  | uniq | join "`, `" }}|
 {{- end }}
 
 ### Client
@@ -88,7 +88,7 @@ Analyzed {{ len .CLIs }} CLIs:
 | Name | Occurrences | Alternative name |
 |------|-------------|------------------|
 {{- range $key, $details := .CollectedData.Client }}
-|`{{ $key }}` | {{ $details.Cnt }} | {{ template "alternative" $details.Alternatives  | uniq | join "," }}|
+|`{{ $key }}` | {{ $details.Cnt }} | {{ template "alternative" $details.Alternatives  | uniq | join "`, `" }}|
 {{- end }}
 
 ### Dependencies
@@ -96,7 +96,7 @@ Analyzed {{ len .CLIs }} CLIs:
 | Name | Occurrences | Alternative name |
 |------|-------------|------------------|
 {{- range $key, $details := .CollectedData.Dependencies }}
-|`{{ $key }}` | {{ $details.Cnt }} | {{ template "alternative" $details.Alternatives  | uniq | join "," }}|
+|`{{ $key }}` | {{ $details.Cnt }} | {{ template "alternative" $details.Alternatives  | uniq | join "`, `" }}|
 {{- end }}
 
 ## Output

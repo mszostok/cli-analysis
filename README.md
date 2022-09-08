@@ -100,45 +100,45 @@ Analyzed 14 CLIs:
 
 ### Server
 
-| Name           | Occurrences | Alternative name               |
-|----------------|-------------|--------------------------------|
-| `API version`  | 1           |                                |
-| `Context`      | 1           |                                |
-| `Experimental` | 1           |                                |
-| `buildDate`    | 2           | `Built`                        |
-| `commit`       | 3           | `Git Commit`,`sha`,`gitCommit` |
-| `compiler`     | 1           |                                |
-| `dirty`        | 1           | `gitTreeState`                 |
-| `gitVersion`   | 1           |                                |
-| `go`           | 2           | `Go version`,`goVersion`       |
-| `major`        | 1           |                                |
-| `minor`        | 1           |                                |
-| `platform`     | 2           | `OS/Arch`                      |
-| `url`          | 1           | `uri`                          |
-| `version`      | 2           | `Version`                      |
+| Name           | Occurrences | Alternative name                 |
+|----------------|-------------|----------------------------------|
+| `API version`  | 1           |                                  |
+| `Context`      | 1           |                                  |
+| `Experimental` | 1           |                                  |
+| `buildDate`    | 2           | `Built`                          |
+| `commit`       | 3           | `Git Commit`, `sha`, `gitCommit` |
+| `compiler`     | 1           |                                  |
+| `dirty`        | 1           | `gitTreeState`                   |
+| `gitVersion`   | 1           |                                  |
+| `go`           | 2           | `Go version`, `goVersion`        |
+| `major`        | 1           |                                  |
+| `minor`        | 1           |                                  |
+| `platform`     | 2           | `OS/Arch`                        |
+| `url`          | 1           | `uri`                            |
+| `version`      | 2           | `Version`                        |
 
 ### Client
 
-| Name                         | Occurrences | Alternative name                                        |
-|------------------------------|-------------|---------------------------------------------------------|
-| `API version`                | 1           |                                                         |
-| `Context`                    | 1           |                                                         |
-| `EKSServerSupportedVersions` | 1           |                                                         |
-| `Experimental`               | 1           |                                                         |
-| `PreReleaseID`               | 1           |                                                         |
-| `buildDate`                  | 7           | `BuildDate,Built,Metadata.BuildDate,date`               |
-| `changelogURL`               | 1           |                                                         |
-| `commit`                     | 9           | `GitCommit,Git Commit,Metadata.GitCommit,sha,gitCommit` |
-| `compiler`                   | 2           | `Compiler`                                              |
-| `dirty`                      | 3           | `gitTreeState,GitTreeState`                             |
-| `gitTag`                     | 1           |                                                         |
-| `gitVersion`                 | 1           |                                                         |
-| `go`                         | 4           | `goVersion,Go version,GoVersion`                        |
-| `k3s image version`          | 1           |                                                         |
-| `major`                      | 1           |                                                         |
-| `minor`                      | 1           |                                                         |
-| `platform`                   | 4           | `Platform,OS/Arch`                                      |
-| `version`                    | 12          | `Version`                                               |
+| Name                         | Occurrences | Alternative name                                                    |
+|------------------------------|-------------|---------------------------------------------------------------------|
+| `API version`                | 1           |                                                                     |
+| `Context`                    | 1           |                                                                     |
+| `EKSServerSupportedVersions` | 1           |                                                                     |
+| `Experimental`               | 1           |                                                                     |
+| `PreReleaseID`               | 1           |                                                                     |
+| `buildDate`                  | 7           | `BuildDate`, `Built`, `Metadata.BuildDate`, `date`                  |
+| `changelogURL`               | 1           |                                                                     |
+| `commit`                     | 9           | `GitCommit`, `Git Commit`, `Metadata.GitCommit`, `sha`, `gitCommit` |
+| `compiler`                   | 2           | `Compiler`                                                          |
+| `dirty`                      | 3           | `gitTreeState`, `GitTreeState`                                      |
+| `gitTag`                     | 1           |                                                                     |
+| `gitVersion`                 | 1           |                                                                     |
+| `go`                         | 4           | `goVersion`, `Go version`, `GoVersion`                              |
+| `k3s image version`          | 1           |                                                                     |
+| `major`                      | 1           |                                                                     |
+| `minor`                      | 1           |                                                                     |
+| `platform`                   | 4           | `Platform`, `OS/Arch`                                               |
+| `version`                    | 12          | `Version`                                                           |
 
 ### Dependencies
 

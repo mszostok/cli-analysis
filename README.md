@@ -68,7 +68,7 @@ Analyzed 14 CLIs:
 - `fass-cli version --warn-update`
 
   > **Note**
-  > enabled by default, doesn't have cache, uses `HEAD */releases/latest`
+  > It's enabled by default, doesn't have cache, and uses `HEAD */releases/latest` to check new release.
 
   ```text
   Your faas-cli version (%s) may be out of date. Version: %s is now available on GitHub.
@@ -76,20 +76,24 @@ Analyzed 14 CLIs:
 - `gh`
 
   > **Note**
-  > enabled by default, have cache, uses `GET */releases/latest`, checks for new releases once every 24 hours and displays an upgrade notice on stderr error if a newer version was found
+  > It's enabled by default, have cache, and uses `GET */releases/latest`. It checks for new releases once every 24 hours and displays an upgrade notice on stderr error if a newer version was found
 
   ```text
   A new release of gh is available: 2.5.1 → v2.5.2
   To upgrade, run: brew update && brew upgrade gh
   https://github.com/cli/cli/releases/tag/v2.5.2
   ```
-- `terraform version --json`
+- `terraform version`
 
   > **Note**
-  > You will see that under `terraform_outdated` property. They call own service https://github.com/hashicorp/go-checkpoint.
+  > When the JSON format is used the `terraform_outdated` property is set to `true`. They call own service https://github.com/hashicorp/go-checkpoint.
 
   ```text
+  Terraform v1.2.8
+  on darwin_amd64
 
+  Your version of Terraform is out of date! The latest version
+  is 1.2.9. You can update by downloading from https://www.terraform.io/downloads.html
   ```
 
 ## What data is collected
@@ -445,7 +449,7 @@ Analyzed 14 CLIs:
   minikubeVersion: v1.26.1
   ```
 
-## Frameworks built-in support
+## Frameworks' built-in support
 
 ### Cobra
 

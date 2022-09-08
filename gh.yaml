@@ -10,7 +10,7 @@ analysis:
   command: true
   upgradeNotice:
     cmd: gh
-    note: enabled by default, have cache,  uses `GET */releases/latest`, checks for new releases once every 24 hours and displays an upgrade notice on stderr error if a newer version was found
+    note: It's enabled by default, have cache, and uses `GET */releases/latest`. It checks for new releases once every 24 hours and displays an upgrade notice on stderr error if a newer version was found
     msg: |
       A new release of gh is available: 2.5.1 → v2.5.2
       To upgrade, run: brew update && brew upgrade gh

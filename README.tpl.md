@@ -76,6 +76,7 @@ Analyzed {{ len .CLIs }} CLIs:
 {{- end -}}
 
 ### Server
+
 | Name | Occurrences | Alternative name |
 |------|-------------|------------------|
 {{- range $key, $details := .CollectedData.Server }}
@@ -114,7 +115,7 @@ Analyzed {{ len .CLIs }} CLIs:
 {{- end }}
 {{- end }}
 
-## Frameworks built-in support
+## Frameworks' built-in support
 
 ### Cobra
 

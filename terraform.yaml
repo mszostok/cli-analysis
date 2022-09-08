@@ -29,5 +29,11 @@ analysis:
       - version
       - platform:Platform
   upgradeNotice:
-    cmd: terraform version --json
-    note: You will see that under `terraform_outdated` property. They call own service https://github.com/hashicorp/go-checkpoint.
+    cmd: terraform version
+    note: When the JSON format is used the `terraform_outdated` property is set to `true`. They call own service https://github.com/hashicorp/go-checkpoint.
+    msg: |
+      Terraform v1.2.8
+      on darwin_amd64
+
+      Your version of Terraform is out of date! The latest version
+      is 1.2.9. You can update by downloading from https://www.terraform.io/downloads.html

@@ -1,0 +1,35 @@
+url: https://github.com/derailed/k9s/blob/v0.26.5/cmd/version.go
+version: v0.26.5
+
+framework: github.com/spf13/cobra
+
+analysis:
+  command: true
+  output:
+    plain:
+      cmd: version
+      note: colored output
+      out: |
+        ____  __.________
+        |    |/ _/   __   \______
+        |      < \____    /  ___/
+        |    |  \   /    /\___ \
+        |____|__ \ /____//____  >
+        \/            \/
+
+        Version: 0.26.5
+        Commit: c35949189f8bbf9fdca109970b23444b4165e341
+        Date: n/a
+
+    short:
+      cmd:  version -s
+      out: |
+        Version              0.26.5
+        Commit               c35949189f8bbf9fdca109970b23444b4165e341
+        Date                 n/a
+
+  collected:
+    client:
+      - version:Version
+      - commit
+      - buildDate:Date

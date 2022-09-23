@@ -1,0 +1,29 @@
+url: https://github.com/derailed/k9s/blob/v0.26.5/cmd/version.go
+version: v0.26.5
+
+framework: github.com/spf13/cobra
+
+analysis:
+  command: true
+  output:
+    plain:
+      cmd: version
+      note: nicely colored output
+      out: |2
+         ___     ___ _____   _____                       K          .-'-.
+        | _ \___| _ \ __\ \ / / __|                       8     __|      `\
+        |  _/ _ \  _/ _| \ V /| _|                         s   `-,-`--._   `\
+        |_| \___/_| |___| |_| |___|                       []  .->'  a     `|-'
+          Biffs`em and Buffs`em!                            `=/ (__/_       /
+                                                              \_,    `    _)
+                                                                 `----;  |
+        Version:   0.10.1
+        Commit:    ae19897a4b5d3738a3e98179207759e45a53a64c
+        Date:      2022-06-28T14:46:13Z
+        Logs:      /var/folders/fs/434y31hj5wl278vrt_4gllt40000gn/T/popeye.log
+
+  collected:
+    client:
+      - version:Version
+      - commit
+      - buildDate:Date

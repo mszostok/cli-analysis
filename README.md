@@ -6,7 +6,7 @@
 
 This document describe what approach was implemented by some popular CLI to display its version.
 
-Analyzed 14 CLIs:
+Analyzed 16 CLIs:
 - [argo](https://github.com/argoproj/argo-workflows/blob/v3.3.9/version.go)
 - [docker](https://github.com/docker/cli/blob/v20.10.17/cli/command/system/version.go)
 - [eksctl](https://github.com/weaveworks/eksctl/blob/v0.108.0/cmd/eksctl/version.go)
@@ -15,28 +15,32 @@ Analyzed 14 CLIs:
 - [golangci-lint](https://github.com/golangci/golangci-lint/blob/v1.48.0/pkg/commands/version.go)
 - [helm](https://github.com/helm/helm/blob/v3.9.3/cmd/helm/version.go)
 - [k3d](https://github.com/k3d-io/k3d/blob/v5.4.4/version/version.go)
+- [k9s](https://github.com/derailed/k9s/blob/v0.26.5/cmd/version.go)
 - [kubectl](https://github.com/kubernetes/kubectl/blob/v0.24.4/pkg/cmd/version/version.go)
 - [minikube](https://github.com/kubernetes/minikube/blob/v1.26.1/cmd/minikube/cmd/version.go)
+- [popeye](https://github.com/derailed/k9s/blob/v0.26.5/cmd/version.go)
 - [porter](https://github.com/getporter/porter/blob/v1.0.0-beta.3/pkg/porter/version.go)
 - [rancher](https://github.com/rancher/cli/blob/v2.6/main.go#L75)
 - [terraform](https://github.com/hashicorp/terraform/blob/v1.2.8/internal/command/version.go)
 - [vault](https://github.com/hashicorp/vault/blob/v1.11.2/command/version.go)
 
 ## How to get the version
-<!-- 14 == 14 -->
+<!-- 16 == 16 -->
 
 ### via command (only)
 
-5 of 14
+7 of 16
 - [argo](https://github.com/argoproj/argo-workflows/blob/v3.3.9/version.go)
 - [eksctl](https://github.com/weaveworks/eksctl/blob/v0.108.0/cmd/eksctl/version.go)
 - [fass-cli](https://github.com/openfaas/faas-cli/blob/0.14.5/commands/version.go)
+- [k9s](https://github.com/derailed/k9s/blob/v0.26.5/cmd/version.go)
 - [kubectl](https://github.com/kubernetes/kubectl/blob/v0.24.4/pkg/cmd/version/version.go)
 - [minikube](https://github.com/kubernetes/minikube/blob/v1.26.1/cmd/minikube/cmd/version.go)
+- [popeye](https://github.com/derailed/k9s/blob/v0.26.5/cmd/version.go)
 
 ### via flag (only)
 
-1 of 14
+1 of 16
 
 | CLI Name                                                        | Flags             |
 |-----------------------------------------------------------------|-------------------|
@@ -44,7 +48,7 @@ Analyzed 14 CLIs:
 
 ### via flag and command (both)
 
-8 of 14
+8 of 16
 
 | CLI Name                                                                                        | Flags             | Command   |
 |-------------------------------------------------------------------------------------------------|-------------------|-----------|
@@ -126,9 +130,9 @@ Analyzed 14 CLIs:
 | `EKSServerSupportedVersions` | 1           |                                                                     |
 | `Experimental`               | 1           |                                                                     |
 | `PreReleaseID`               | 1           |                                                                     |
-| `buildDate`                  | 7           | `BuildDate`, `Built`, `Metadata.BuildDate`, `date`                  |
+| `buildDate`                  | 9           | `BuildDate`, `Built`, `Metadata.BuildDate`, `date`, `Date`          |
 | `changelogURL`               | 1           |                                                                     |
-| `commit`                     | 9           | `GitCommit`, `Git Commit`, `Metadata.GitCommit`, `sha`, `gitCommit` |
+| `commit`                     | 11          | `GitCommit`, `Git Commit`, `Metadata.GitCommit`, `sha`, `gitCommit` |
 | `compiler`                   | 2           | `Compiler`                                                          |
 | `dirty`                      | 3           | `gitTreeState`, `GitTreeState`                                      |
 | `gitTag`                     | 1           |                                                                     |
@@ -138,7 +142,7 @@ Analyzed 14 CLIs:
 | `major`                      | 1           |                                                                     |
 | `minor`                      | 1           |                                                                     |
 | `platform`                   | 4           | `Platform`, `OS/Arch`                                               |
-| `version`                    | 12          | `Version`                                                           |
+| `version`                    | 14          | `Version`                                                           |
 
 ### Dependencies
 
@@ -352,11 +356,42 @@ Analyzed 14 CLIs:
   k3s version v1.23.8-k3s1 (default)
   ```
 
+- `version` colored output
+
+  ```text
+  ____  __.________
+  |    |/ _/   __   \______
+  |      < \____    /  ___/
+  |    |  \   /    /\___ \
+  |____|__ \ /____//____  >
+  \/            \/
+
+  Version: 0.26.5
+  Commit: c35949189f8bbf9fdca109970b23444b4165e341
+  Date: n/a
+  ```
+
 - `minikube version`
 
   ```text
   minikube version: v1.26.1
   commit: 62e108c3dfdec8029a890ad6d8ef96b6461426dc
+  ```
+
+- `version` nicely colored output
+
+  ```text
+   ___     ___ _____   _____                       K          .-'-.
+  | _ \___| _ \ __\ \ / / __|                       8     __|      `\
+  |  _/ _ \  _/ _| \ V /| _|                         s   `-,-`--._   `\
+  |_| \___/_| |___| |_| |___|                       []  .->'  a     `|-'
+    Biffs`em and Buffs`em!                            `=/ (__/_       /
+                                                        \_,    `    _)
+                                                           `----;  |
+  Version:   0.10.1
+  Commit:    ae19897a4b5d3738a3e98179207759e45a53a64c
+  Date:      2022-06-28T14:46:13Z
+  Logs:      /var/folders/fs/434y31hj5wl278vrt_4gllt40000gn/T/popeye.log
   ```
 
 - `porter version`
@@ -418,6 +453,14 @@ Analyzed 14 CLIs:
 
 - `helm version --short`
 
+- `version -s`
+
+  ```text
+  Version              0.26.5
+  Commit               c35949189f8bbf9fdca109970b23444b4165e341
+  Date                 n/a
+  ```
+
 - `kubectl version --short` (deprecated, will be default in the future)
 
   ```text
@@ -456,7 +499,7 @@ Analyzed 14 CLIs:
 | Name                       | Occurrences |
 |----------------------------|-------------|
 | `github.com/mitchellh/cli` | 2           |
-| `github.com/spf13/cobra`   | 11          |
+| `github.com/spf13/cobra`   | 13          |
 | `github.com/urfave/cli`    | 1           |
 
 ### Built-in support
